@@ -1,68 +1,49 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        nuxt-jx
-      </h1>
-      <h2 class="subtitle">
-        My grand Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
-      </div>
-    </div>
+  <div class="homepage">
+    <banner-list></banner-list>
+    <suggest-list></suggest-list>
+    <brand-list></brand-list>
+    <goods-list></goods-list>
+    <links-list></links-list>
+    <fixed-icon></fixed-icon>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
+import BannerList from "@/components/index/BannerList";
+import SuggestList from "@/components/index/SuggestList";
+import BrandList from "@/components/index/BrandList";
+import GoodsList from "@/components/index/GoodsList";
+import LinksList from "@/components/index/LinksList";
+import FixedIcon from "@/components/index/FixedIcon";
+import api from "@/plugins/api";
 export default {
+  name: "homepage",
   components: {
-    Logo
-  }
-}
+    BannerList,
+    SuggestList,
+    BrandList,
+    GoodsList,
+    LinksList,
+    FixedIcon
+  },
+  async fetch({ params, app, store }) {
+    const { code, list } = await api.getMenu();
+    if (code === 0) {
+      store.commit("setMenu", list);
+    }
+  },
+  async created() {
+    const resp = await api.getUserBlogs();
+    console.log(resp)
+  },
+};
 </script>
 
 <style lang="scss">
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.homepage {
+  * {
+    box-sizing: content-box;
+  }
 }
 </style>

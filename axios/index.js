@@ -1,12 +1,26 @@
+/* eslint-disable */
 import axios from 'axios'
-axios.defaults.baseURL = 'http://api.jx.com'
-axios.defaults.withCredentials = false
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
+const server = axios.create({
+  baseURL: 'http://localhost:3000',
+  timeout: 8000,
+});
+server.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
+server.interceptors.request.use(config => {
+  return config
+}, error => {
+  console.log(error)
+  Promise.reject(error)
+})
 
-// 封装post
-export function post(url, params) {
+server.interceptors.response.use(response => {
+  return response
+}, error => {
+  return Promise.reject(error)
+})
+
+export function $get(url, params) {
   return new Promise((resolve, reject) => {
-    axios.post(url, params)
+    server.get(url, params)
       .then(res => {
         resolve(res.data);
       }, err => {
@@ -18,27 +32,54 @@ export function post(url, params) {
   })
 }
 
-// 封装get方法
-export function get(url) {
+export function $post(url, params) {
   return new Promise((resolve, reject) => {
-    axios.get(url)
-      .then(response => {
-        resolve(response.data);
+    server.post(url, params)
+      .then(res => {
+        resolve(res.data);
+      }, err => {
+        reject(err);
       })
-      .catch(err => {
-        reject(err)
+      .catch((error) => {
+        reject(error)
       })
   })
 }
 
 export default ({
-  /* 主页接口 */
-  getIndexData(data = {}) {
-    return post('/front/front/index', data)
-  },
-  /* 密码登陆 */
-  passwordLogin(data = {}) {
-    return post('/user/login', data)
+  login(data = {}) {
+    return $post('/users/signin', data)
   },
 
+  register(data = {}) {
+    return $post('/users/signup', data)
+  },
+
+  verify(data = {}) {
+    return $post('/users/verify', data)
+  },
+
+  loginOut() {
+    return $get('/users/exit')
+  },
+
+  getUser() {
+    return $get('/users/getUser')
+  },
+
+  getMenu() {
+    return $get('/menu/getMenu')
+  },
+
+  getTestData() {
+    return $get('/test/testData')
+  },
+
+  setTestData() {
+    return $post('/test/setTestData')
+  },
+
+  getUserBlogs() {
+    return $get('/users/getUserBlogs')
+  }
 })

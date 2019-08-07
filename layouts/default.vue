@@ -1,55 +1,92 @@
 <template>
-  <div>
-    <nuxt />
+  <div class="layout">
+    <index-top></index-top>
+    <index-nav></index-nav>
+    <app-main></app-main>
+    <index-bot></index-bot>
+    <transition name="slide">
+      <index-nav v-show="fixedTop" :fixedType="true"></index-nav>
+    </transition>
   </div>
 </template>
 
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<script>
+import IndexTop from "@/components/layout/IndexTop";
+import IndexNav from "@/components/layout/IndexNav";
+import AppMain from "@/components/layout/AppMain";
+import IndexBot from "@/components/layout/IndexBot";
+import Lodash from "lodash";
+export default {
+  name: "layout",
+  components: {
+    IndexTop,
+    IndexNav,
+    AppMain,
+    IndexBot
+  },
+  data() {
+    return {
+      top: 0,
+      fixedTop: false,
+      isShowNav: true,
+      navNoFixed: [
+        "shoppingCart",
+        "shopInquiry",
+        "quickInquiry",
+        "myOrder",
+        "myOrder-allOrders",
+        "myOrder-inquiryOrders",
+        "myOrder-inquiryDetail",
+        "myOrder-orderDetail",
+        "myOrder-AccountSetting",
+        "myOrder-AccountSetting-ShippingAddress",
+        "myOrder-AccountSetting-ChangePsw",
+        "myOrder-AccountSetting-FeedBack"
+      ]
+    };
+  },
+  watch: {
+    top(val) {
+      if (
+        !this.navNoFixed.includes(this.$router.history.current.name) &&
+        val > 600
+      ) {
+        this.fixedTop = true;
+      } else {
+        this.fixedTop = false;
+      }
+    },
+    $route() {
+      this.$store.dispatch("setNavActiveIndex", this.$route.path);
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener("scroll", this.scrollTop);
+    });
+  },
+  created() {
+    this.$store.dispatch("setNavActiveIndex", this.$route.path);
+  },
+  methods: {
+    scrollTop: Lodash.debounce(function() {
+      this.top =
+        document.documentElement.scrollTop ||
+        window.pageYOffset ||
+        document.body.scrollTop;
+      this.$store.dispatch("setScrollTop", this.top);
+    }, 10)
+  }
+};
+</script>
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+<style lang="scss">
+.layout {
+  .slide-enter-active {
+    transition: all 0.6s ease;
+  }
+  .slide-enter {
+    transform: translateY(-50px);
+  }
 }
 </style>
