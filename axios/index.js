@@ -84,6 +84,6 @@ export default ({
   },
 
   getTes() {
-    return $get('/users/getUserBlogs')
+    return $post('/users/getUserBlogs')
   }
 })
