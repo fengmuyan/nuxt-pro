@@ -81,5 +81,9 @@ export default ({
 
   getUserBlogs() {
     return $get('/users/getUserBlogs')
+  },
+
+  getTes() {
+    return $get('/users/getUserBlogs')
   }
 })
