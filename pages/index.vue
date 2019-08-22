@@ -8,6 +8,10 @@
     <fixed-icon></fixed-icon>
   </div>
 </template>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1ca04075c4254bfcd1ad456deb64c0e6368a4392
 <script>
 import BannerList from "@/components/index/BannerList";
 import SuggestList from "@/components/index/SuggestList";
@@ -15,6 +19,10 @@ import BrandList from "@/components/index/BrandList";
 import GoodsList from "@/components/index/GoodsList";
 import LinksList from "@/components/index/LinksList";
 import FixedIcon from "@/components/index/FixedIcon";
+<<<<<<< HEAD
+=======
+import api from "@/plugins/api";
+>>>>>>> 1ca04075c4254bfcd1ad456deb64c0e6368a4392
 export default {
   name: "homepage",
   components: {
@@ -25,6 +33,19 @@ export default {
     LinksList,
     FixedIcon
   },
+<<<<<<< HEAD
+=======
+  async fetch({ params, app, store }) {
+    const { code, list } = await api.getMenu();
+    if (code === 0) {
+      store.commit("setMenu", list);
+    }
+  },
+  async created() {
+    const resp = await api.getUserBlogs();
+    console.log(resp)
+  },
+>>>>>>> 1ca04075c4254bfcd1ad456deb64c0e6368a4392
 };
 </script>
 

@@ -1,4 +1,5 @@
 @import './variables.scss';
+<<<<<<< HEAD
 #app {
   min-width: 1200px;
   overflow: hidden;
@@ -32,6 +33,8 @@
   }
 }
 
+=======
+>>>>>>> 1ca04075c4254bfcd1ad456deb64c0e6368a4392
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -106,6 +109,41 @@
   width: 100%;
 }
 
+<<<<<<< HEAD
+=======
+#app {
+  min-width: 1200px;
+  @at-root {
+    .el-dropdown-menu {
+      font-size: 12px;
+    }
+    .el-menu--horizontal {
+      * {
+        box-sizing: content-box;
+      }
+      .el-menu--popup {
+        margin-top: 1px;
+        min-width: 80px;
+        padding: 11px 14px;
+        height: 152px;
+        border: 1px solid #cccccc;
+        border-top: 2px solid $mainColor;
+        border-radius: 0;
+        .el-menu-item {
+          height: 38px;
+          line-height: 36px;
+          font-size: 14px;
+          color: #000;
+        }
+      }
+      .el-menu-item.is-active {
+        color: $mainColor !important;
+      }
+    }
+  }
+}
+
+>>>>>>> 1ca04075c4254bfcd1ad456deb64c0e6368a4392
 .el-form-item {
   margin-bottom: 20px;
 }

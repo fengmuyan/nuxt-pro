@@ -1,5 +1,11 @@
 module.exports = {
   mode: 'universal',
+<<<<<<< HEAD
+=======
+  /*
+   ** Headers of the page
+   */
+>>>>>>> 1ca04075c4254bfcd1ad456deb64c0e6368a4392
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -39,9 +45,12 @@ module.exports = {
   /*
    ** Build configuration
    */
+<<<<<<< HEAD
   env: {
     NODE_ENV: process.env.NODE_ENV
   },
+=======
+>>>>>>> 1ca04075c4254bfcd1ad456deb64c0e6368a4392
   build: {
     transpile: [/^element-ui/],
     /*
