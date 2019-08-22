@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'nuxt-jx',
-    script: './dist/index.js',
+    script: 'server/index.js',
     append_env_to_name: true,
     env: {
       COMMON_VARIABLE: 'true'
