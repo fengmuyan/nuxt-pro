@@ -1,17 +1,13 @@
 import Koa from 'koa'
 import consola from 'consola'
 import { Nuxt, Builder } from 'nuxt'
-import mongoose from 'mongoose'
 import bodyParser from 'koa-bodyparser'
-import dbConfig from './models/db'
 import json from 'koa-json'
 import session from 'koa-generic-session'
-import api from './routes/api'
 
 const app = new Koa()
 let config = require('../nuxt.config.js')
 config.dev = !(app.env === 'production')
-
 async function start() {
   const nuxt = new Nuxt(config)
   const {
@@ -34,10 +30,6 @@ async function start() {
     enableTypes: ['json', 'form', 'text']
   }))
   app.use(json())
-  mongoose.connect(dbConfig.dbs, {
-    useNewUrlParser: true
-  })
-  app.use(api.routes()).use(api.allowedMethods())
   app.use(ctx => {
     ctx.status = 200
     ctx.respond = false

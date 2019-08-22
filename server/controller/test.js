@@ -7,6 +7,7 @@ import User from '../models/user'
  */
 
 const getUsersList = async(ctx) => {
+  console.log(111111)
   try {
     console.log(User)
     ctx.body = {

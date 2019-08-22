@@ -39,6 +39,9 @@ module.exports = {
   /*
    ** Build configuration
    */
+  env: {
+    NODE_ENV: process.env.NODE_ENV
+  },
   build: {
     transpile: [/^element-ui/],
     /*
