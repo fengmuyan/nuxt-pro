@@ -47,48 +47,7 @@ export function $post(url, params) {
 }
 
 export default ({
-<<<<<<< HEAD
   test(data = {}) {
     return $post('/api/user/getUser', data)
-=======
-  login(data = {}) {
-    return $post('/users/signin', data)
-  },
-
-  register(data = {}) {
-    return $post('/users/signup', data)
-  },
-
-  verify(data = {}) {
-    return $post('/users/verify', data)
-  },
-
-  loginOut() {
-    return $get('/users/exit')
-  },
-
-  getUser() {
-    return $get('/users/getUser')
-  },
-
-  getMenu() {
-    return $get('/menu/getMenu')
-  },
-
-  getTestData() {
-    return $get('/test/testData')
-  },
-
-  setTestData() {
-    return $post('/test/setTestData')
-  },
-
-  getUserBlogs() {
-    return $get('/users/getUserBlogs')
-  },
-
-  getTes() {
-    return $post('/users/getUserBlogs')
->>>>>>> 1ca04075c4254bfcd1ad456deb64c0e6368a4392
   }
 })
