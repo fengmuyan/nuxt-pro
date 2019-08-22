@@ -1,7 +1,11 @@
 module.exports = {
   apps: [{
     name: 'nuxt-jx',
-    script: 'serve/index.js',
+    script: 'start.js',
+    append_env_to_name: true,
+    env: {
+      COMMON_VARIABLE: 'true'
+    },
     env_test: {
       NODE_ENV: 'test',
       BACKEND_URL: 'http://www.saikang.top',
