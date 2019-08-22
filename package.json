@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "backpack dev",
     "build": "nuxt build",
-    "start": "nuxt start --exec babel-node",
+    "start": "nuxt start",
     "generate": "nuxt generate",
     "prodInit": "pm2 deploy production setup",
     "prod": "pm2 deploy production"
