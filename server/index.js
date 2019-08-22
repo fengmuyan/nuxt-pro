@@ -1,13 +1,14 @@
-import Koa from 'koa'
-import consola from 'consola'
-import { Nuxt, Builder } from 'nuxt'
-import bodyParser from 'koa-bodyparser'
-import json from 'koa-json'
-import session from 'koa-generic-session'
+import Koa from 'koa';
+import consola from 'consola';
+import { Nuxt, Builder } from 'nuxt';
+import bodyParser from 'koa-bodyparser';
+import json from 'koa-json';
+import session from 'koa-generic-session';
 
 const app = new Koa()
 let config = require('../nuxt.config.js')
 config.dev = !(app.env === 'production')
+
 async function start() {
   const nuxt = new Nuxt(config)
   const {
