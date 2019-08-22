@@ -6,10 +6,8 @@ import User from '../models/user'
  * @return {object|null}  insert Front article
  */
 
-const getUsersList = async(ctx) => {
-  console.log(111111)
+export const getUsersList = async(ctx) => {
   try {
-    console.log(User)
     ctx.body = {
       error: 0,
       success: ok
@@ -20,8 +18,4 @@ const getUsersList = async(ctx) => {
       info: e
     }
   }
-}
-
-module.exports = {
-  getUsersList
 }

@@ -1,9 +1,21 @@
 /* eslint-disable */
 import axios from 'axios'
-const server = axios.create({
-  baseURL: 'http://www.saikang.top',
+const env = process.env.NODE_ENV || 'development'
+const baseUrl = {
+  development: 'http://localhost:3000',
+  production: 'http://www.saikang.top'
+}
+const options = {
+  baseURL: baseUrl[env],
   timeout: 8000,
-});
+  responseType: 'json',
+  headers: {
+    post: {
+      'Content-Type': 'application/json'
+    }
+  }
+}
+const server = axios.create(options);
 server.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
 server.interceptors.request.use(config => {
   return config

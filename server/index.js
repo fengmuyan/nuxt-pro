@@ -1,9 +1,11 @@
 import Koa from 'koa';
 import consola from 'consola';
 import { Nuxt, Builder } from 'nuxt';
+import Router from 'koa-router'
 import bodyParser from 'koa-bodyparser';
 import json from 'koa-json';
 import session from 'koa-generic-session';
+import route from './routers/api.js'
 
 const app = new Koa()
 let config = require('../nuxt.config.js')
@@ -31,6 +33,9 @@ async function start() {
     enableTypes: ['json', 'form', 'text']
   }))
   app.use(json())
+  const router = new Router()
+  router.use('', route.routes())
+  app.use(router.routes()).use(router.allowedMethods())
   app.use(ctx => {
     ctx.status = 200
     ctx.respond = false

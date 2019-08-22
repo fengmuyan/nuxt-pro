@@ -15,6 +15,7 @@ import BrandList from "@/components/index/BrandList";
 import GoodsList from "@/components/index/GoodsList";
 import LinksList from "@/components/index/LinksList";
 import FixedIcon from "@/components/index/FixedIcon";
+import api from "@/plugins/api";
 export default {
   name: "homepage",
   components: {
@@ -25,6 +26,10 @@ export default {
     LinksList,
     FixedIcon
   },
+  async asyncData() {
+    const resp = await api.test();
+    console.log(resp);
+  }
 };
 </script>
 
