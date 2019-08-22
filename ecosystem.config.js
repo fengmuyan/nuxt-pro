@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'nuxt-iview',
+    name: 'nuxt-jx',
     script: 'build/main.js',
     env_test: {
       NODE_ENV: 'test',
