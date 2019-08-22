@@ -76,11 +76,7 @@ export default {
   },
   computed: {
     ...mapGetters(["navActiveIndex"])
-<<<<<<< HEAD
   }
-=======
-  },
->>>>>>> 1ca04075c4254bfcd1ad456deb64c0e6368a4392
 };
 </script>
 
