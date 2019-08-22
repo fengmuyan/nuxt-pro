@@ -17,7 +17,7 @@ module.exports = {
       host: ['39.107.48.134'],
       port: '22',
       ref: 'origin/master',
-      repo: 'git@github.com:fengmuyan/Mygit2.git',
+      repo: 'git@github.com:fengmuyan/Mygit.git',
       path: '/home/nuxt-pro/production',
       ssh_options: 'StrictHostKeyChecking=no',
       'post-deploy': 'cnpm install && npm run build && pm2 startOrRestart ecosystem.config.js --env production'
