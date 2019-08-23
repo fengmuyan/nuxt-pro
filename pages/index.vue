@@ -27,7 +27,7 @@ export default {
     FixedIcon
   },
   async created() {
-    await api.addUser();
+    await api.test();
   }
 };
 </script>
