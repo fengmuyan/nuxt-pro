@@ -26,7 +26,7 @@ export default {
     LinksList,
     FixedIcon
   },
-  async asyncData() {
+  async created() {
     const resp = await api.test();
     console.log(resp);
   }

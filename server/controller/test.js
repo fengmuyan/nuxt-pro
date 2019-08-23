@@ -6,11 +6,13 @@ import User from '../models/user'
  * @return {object|null}  insert Front article
  */
 
-export const getUsersList = async(ctx) => {
+export let getUsersList = async(ctx) => {
   try {
+    const userList = await User.find({});
     ctx.body = {
+      userList,
       error: 0,
-      success: ok
+      success: 'ok'
     }
   } catch (e) {
     ctx.body = {

@@ -1,11 +1,13 @@
 import Koa from 'koa';
 import consola from 'consola';
 import { Nuxt, Builder } from 'nuxt';
+import mongoose from 'mongoose'
 import Router from 'koa-router'
 import bodyParser from 'koa-bodyparser';
 import json from 'koa-json';
 import session from 'koa-generic-session';
-import route from './routers/api.js'
+import route from './routers/api'
+import dbConfig from './models/db'
 
 const app = new Koa()
 let config = require('../nuxt.config.js')
@@ -33,6 +35,9 @@ async function start() {
     enableTypes: ['json', 'form', 'text']
   }))
   app.use(json())
+  mongoose.connect(dbConfig.dbs, {
+    useNewUrlParser: true
+  })
   const router = new Router()
   router.use('', route.routes())
   app.use(router.routes()).use(router.allowedMethods())
