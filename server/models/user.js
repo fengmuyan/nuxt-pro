@@ -11,8 +11,7 @@ const User = new Schema({
     require: true
   },
   email: {
-    type: String,
-    require: true
+    type: String
   },
   isAdmin: {
     type: Boolean,

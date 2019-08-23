@@ -21,3 +21,19 @@ export let getUsersList = async(ctx) => {
     }
   }
 }
+
+export let addUser = async(ctx) => {
+  try {
+    let user = new User({ username: 'fengsaikng22', password: 'yg0JJ7Fon9zsncNsXoseKQ==' });
+    user.save();
+    ctx.body = {
+      error: 0,
+      success: 'ok'
+    }
+  } catch (e) {
+    ctx.body = {
+      error: 1,
+      info: e
+    }
+  }
+}

@@ -61,5 +61,8 @@ export function $post(url, params) {
 export default ({
   test(data = {}) {
     return $post('/api/user/getUser', data)
+  },
+  addUser(data = {}) {
+    return $post('/api/user/addUser', data)
   }
 })

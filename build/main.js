@@ -92,9 +92,9 @@ module.exports = require("koa-router");
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_F_nuxt_pro_node_modules_babel_runtime_6_26_0_babel_runtime_regenerator__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_F_nuxt_pro_node_modules_babel_runtime_6_26_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_F_nuxt_pro_node_modules_babel_runtime_6_26_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_koa__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_consola__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_consola__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_consola___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_consola__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_nuxt__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_nuxt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_nuxt__);
@@ -104,12 +104,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_koa_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_koa_router__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_koa_bodyparser__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_koa_bodyparser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_koa_bodyparser__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_koa_json__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_koa_json__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_koa_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_koa_json__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_koa_generic_session__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_koa_generic_session__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_koa_generic_session___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_koa_generic_session__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__routers_api__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__models_db__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__routers_api__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__models_db__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__models_db___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__models_db__);
 
 
@@ -198,7 +198,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 var app = new __WEBPACK_IMPORTED_MODULE_1_koa___default.a();
-var config = __webpack_require__(5);
+var config = __webpack_require__(15);
 config.dev = !(app.env === 'production');
 
 start();
@@ -211,63 +211,15 @@ module.exports = require("regenerator-runtime");
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-module.exports = {
-  mode: 'universal',
-  head: {
-    title: process.env.npm_package_name || '',
-    meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }, { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
-  },
-  /*
-   ** Customize the progress-bar color
-   */
-  loading: { color: '#fff' },
-  /*
-   ** Global CSS
-   */
-  css: ['element-ui/lib/theme-chalk/index.css', '@/assets/css/reset.scss', '@/assets/css/public.scss'],
-  /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: ['@/plugins/element-ui', "@/plugins/lazyload", "@/plugins/api", "@/plugins/utils"],
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [],
-  /*
-   ** Build configuration
-   */
-  env: {
-    NODE_ENV: "development"
-  },
-  build: {
-    transpile: [/^element-ui/],
-    /*
-     ** You can extend webpack config here
-     */
-    extend: function extend(config, _ref) {
-      var isDev = _ref.isDev,
-          isClient = _ref.isClient;
-
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        });
-      }
-    }
-  }
-};
+module.exports = require("koa");
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = require("koa");
+module.exports = require("consola");
 
 /***/ }),
 /* 7 */
@@ -285,33 +237,41 @@ module.exports = require("koa-bodyparser");
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = require("koa-generic-session");
+module.exports = require("koa-json");
 
 /***/ }),
 /* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa_router__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_koa_router__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__controller_test__ = __webpack_require__(11);
-
-
-var router = new __WEBPACK_IMPORTED_MODULE_0_koa_router___default.a({ prefix: '/api' });
-
-/*插入文章接口*/
-router.post('/user/getUser', __WEBPACK_IMPORTED_MODULE_1__controller_test__["a" /* getUsersList */]);
-/* harmony default export */ __webpack_exports__["a"] = (router);
+module.exports = require("koa-generic-session");
 
 /***/ }),
 /* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getUsersList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa_router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_koa_router__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__controller_test__ = __webpack_require__(12);
+
+
+var router = new __WEBPACK_IMPORTED_MODULE_0_koa_router___default.a({ prefix: '/api' });
+
+/*插入文章接口*/
+router.post('/user/getUser', __WEBPACK_IMPORTED_MODULE_1__controller_test__["b" /* getUsersList */]);
+router.post('/user/addUser', __WEBPACK_IMPORTED_MODULE_1__controller_test__["a" /* addUser */]);
+/* harmony default export */ __webpack_exports__["a"] = (router);
+
+/***/ }),
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getUsersList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addUser; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_F_nuxt_pro_node_modules_babel_runtime_6_26_0_babel_runtime_regenerator__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_F_nuxt_pro_node_modules_babel_runtime_6_26_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_F_nuxt_pro_node_modules_babel_runtime_6_26_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_user__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_user__ = __webpack_require__(13);
 
 
 var _this = this;
@@ -370,8 +330,43 @@ var getUsersList = function () {
   };
 }();
 
+var addUser = function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_F_nuxt_pro_node_modules_babel_runtime_6_26_0_babel_runtime_regenerator___default.a.mark(function _callee2(ctx) {
+    var user;
+    return __WEBPACK_IMPORTED_MODULE_0_F_nuxt_pro_node_modules_babel_runtime_6_26_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            try {
+              user = new __WEBPACK_IMPORTED_MODULE_1__models_user__["a" /* default */]({ username: 'fengsaikng22', password: 'yg0JJ7Fon9zsncNsXoseKQ==' });
+
+              user.save();
+              ctx.body = {
+                error: 0,
+                success: 'ok'
+              };
+            } catch (e) {
+              ctx.body = {
+                error: 1,
+                info: e
+              };
+            }
+
+          case 1:
+          case 'end':
+            return _context2.stop();
+        }
+      }
+    }, _callee2, _this);
+  }));
+
+  return function addUser(_x2) {
+    return _ref2.apply(this, arguments);
+  };
+}();
+
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -390,8 +385,7 @@ var User = new Schema({
     require: true
   },
   email: {
-    type: String,
-    require: true
+    type: String
   },
   isAdmin: {
     type: Boolean,
@@ -406,7 +400,7 @@ var User = new Schema({
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_mongoose___default.a.model('User', User));
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -414,16 +408,58 @@ module.exports = {
 };
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-module.exports = require("consola");
-
-/***/ }),
 /* 15 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = require("koa-json");
+module.exports = {
+  mode: 'universal',
+  head: {
+    title: process.env.npm_package_name || '',
+    meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }, { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+  },
+  /*
+   ** Customize the progress-bar color
+   */
+  loading: { color: '#fff' },
+  /*
+   ** Global CSS
+   */
+  css: ['element-ui/lib/theme-chalk/index.css', '@/assets/css/reset.scss', '@/assets/css/public.scss'],
+  /*
+   ** Plugins to load before mounting the App
+   */
+  plugins: ['@/plugins/element-ui', "@/plugins/lazyload", "@/plugins/api", "@/plugins/utils"],
+  /*
+   ** Nuxt.js modules
+   */
+  modules: [],
+  /*
+   ** Build configuration
+   */
+  env: {
+    NODE_ENV: "development"
+  },
+  build: {
+    transpile: [/^element-ui/],
+    /*
+     ** You can extend webpack config here
+     */
+    extend: function extend(config, _ref) {
+      var isDev = _ref.isDev,
+          isClient = _ref.isClient;
+
+      if (isDev && isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        });
+      }
+    }
+  }
+};
 
 /***/ })
 /******/ ]);
