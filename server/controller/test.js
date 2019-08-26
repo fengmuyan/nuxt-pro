@@ -9,9 +9,7 @@ import User from '../models/user'
 export let getUsersList = async(ctx) => {
   try {
     console.log(1111)
-    const userList = await User.find({});
     ctx.body = {
-      userList,
       error: 0,
       success: 'ok'
     }
