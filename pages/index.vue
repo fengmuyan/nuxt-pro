@@ -27,7 +27,7 @@ export default {
     FixedIcon
   },
   async created() {
-    await api.test();
+    await api.test({ name: "asdas", age: 11, sign_key: "123456" });
   }
 };
 </script>

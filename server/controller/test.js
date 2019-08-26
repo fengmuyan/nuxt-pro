@@ -22,6 +22,12 @@ export let getUsersList = async(ctx) => {
   }
 }
 
+/**
+ * private API
+ * @method addUser
+ * @param {object} 接收发布文章接口传递对象值
+ * @return {object|null}  insert Front article
+ */
 export let addUser = async(ctx) => {
   try {
     let user = new User({ username: 'fengsaikng22', password: 'yg0JJ7Fon9zsncNsXoseKQ==' });

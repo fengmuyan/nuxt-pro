@@ -330,6 +330,12 @@ var getUsersList = function () {
   };
 }();
 
+/**
+ * private API
+ * @method addUser
+ * @param {object} 接收发布文章接口传递对象值
+ * @return {object|null}  insert Front article
+ */
 var addUser = function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_F_nuxt_pro_node_modules_babel_runtime_6_26_0_babel_runtime_regenerator___default.a.mark(function _callee2(ctx) {
     var user;

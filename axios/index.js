@@ -16,7 +16,6 @@ const options = {
   }
 }
 const server = axios.create(options);
-server.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
 server.interceptors.request.use(config => {
   return config
 }, error => {
