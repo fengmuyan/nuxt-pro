@@ -42,6 +42,10 @@ module.exports = {
   env: {
     NODE_ENV: process.env.NODE_ENV
   },
+  server: {
+    port: 3005,
+    host: '0.0.0.0',
+  },
   build: {
     transpile: [/^element-ui/],
     /*
