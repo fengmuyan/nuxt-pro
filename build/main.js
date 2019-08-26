@@ -294,10 +294,12 @@ var getUsersList = function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            _context.next = 3;
+
+            console.log(1111);
+            _context.next = 4;
             return __WEBPACK_IMPORTED_MODULE_1__models_user__["a" /* default */].find({});
 
-          case 3:
+          case 4:
             userList = _context.sent;
 
             ctx.body = {
@@ -305,11 +307,11 @@ var getUsersList = function () {
               error: 0,
               success: 'ok'
             };
-            _context.next = 10;
+            _context.next = 11;
             break;
 
-          case 7:
-            _context.prev = 7;
+          case 8:
+            _context.prev = 8;
             _context.t0 = _context['catch'](0);
 
             ctx.body = {
@@ -317,12 +319,12 @@ var getUsersList = function () {
               info: _context.t0
             };
 
-          case 10:
+          case 11:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, _this, [[0, 7]]);
+    }, _callee, _this, [[0, 8]]);
   }));
 
   return function getUsersList(_x) {
@@ -448,7 +450,7 @@ module.exports = {
   },
   server: {
     port: 3005,
-    host: '0.0.0.0'
+    host: '127.0.0.1'
   },
   build: {
     transpile: [/^element-ui/],
