@@ -3,7 +3,7 @@ import axios from 'axios'
 const env = process.env.NODE_ENV || 'development'
 const baseUrl = {
   development: 'http://localhost:3005',
-  production: 'http://www.saikang.top'
+  production: 'http://www.saikang.top:3005'
 }
 const options = {
   baseURL: baseUrl[env],
